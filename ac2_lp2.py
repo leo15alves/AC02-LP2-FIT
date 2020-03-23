@@ -168,6 +168,7 @@ class Gato(Mamifero):
     '<nome> tem <vidas> vidas sobrando'
     Onde <vidas> é o número de vidas restantes do gato em questão.
     """
+    
     def __init__(self, nome, cor_pelo, idade, tipo_pata, vidas=7):
         super().__init__(nome, cor_pelo, idade, tipo_pata)
         self.vidas = vidas
@@ -176,24 +177,99 @@ class Gato(Mamifero):
         return '{} miando'.format(self.nome)
 
     def morrer(self):
-        if self.vidas ==0:
+        self.vidas -= 1
+        if self.vidas <=0:
             return '{} morrreu'.format(self.nome)
         else:
-            self.vidas -=1
             return '{} tem {} vidas sobrando'.format(self.nome, self.vidas)
 
 def main():
-    c1=Camaleao("Jonny", "preto", 7, "grilo")
-    print(c1.__dict__)
-    print(c1.comer_inseto())
-    print(c1.mudar_de_cor())
-    print(c1.tomar_sol())
-    gato1=Gato("Tom", "branco", 5, "garra")
-    print(gato1.miar())
-    print(gato1.morrer())
-    print(gato1.morrer())
+    #Teste do Camaleao
+    print("Teste do Camaleão:")
+    Jonny=Camaleao("Jonny", "preto", 7, "grilo")
+    print(Jonny.__dict__)
+    print(Jonny.comer_inseto())
+    print(Jonny.mudar_de_cor())
+    print(Jonny.tomar_sol())
+    print(Jonny.botar_ovo())
+    
+    #Teste do Jacaré
+    print("Teste do jacaré:")
+    GabbyGator=Jacare("GabbyGator", "amarelo", 1, 76)
+    print(GabbyGator.__dict__)
+    print(GabbyGator.tomar_sol())
+    print(GabbyGator.botar_ovo())
+    print(GabbyGator.atacar())
+    print(GabbyGator.dormir())
+
+    #Teste da Cobra
+    print("Teste da Cobra:")
+    Celeste=Cobra("Celeste", "rosa", 3, True)
+    print(Celeste.__dict__)
+    print(Celeste.tomar_sol())
+    print(Celeste.botar_ovo())
+    print(Celeste.rastejar())
+    print(Celeste.trocar_pele())
+
+    #Teste do Cachorro
+    print("Teste do Cachorro:")
+    Spike=Cachorro("Spike", "prata", 4, "garra", "Buldogue Inglês")
+    print(Spike.__dict__)
+    print(Spike.correr())
+    print(Spike.mamar())
+    print(Spike.latir())
+    print(Spike.rosnar())
+
+    #Teste do Cavalo
+    print("Teste do Cavalo:")
+    PedePano=Cavalo("Pé de Pano", "branco", 3, "Casco", "preto")
+    print(PedePano.__dict__)
+    print(PedePano.correr())
+    print(PedePano.mamar())
+    print(PedePano.galopar())
+    print(PedePano.relinchar())
+    
+    #Teste do Gato
+    print("Iniciando os testes do Gato...")
+    #Primeiro Gato chamado Tom
+    print("Primeiro teste do Gato:")
+    Tom=Gato("Tom", "branco", 5, "garra")
+    print(Tom.__dict__)
+    print(Tom.correr())
+    print(Tom.mamar())
+    print(Tom.miar())
+
+    #Matando o Tom 7 vezes com método de repetição e verificando 2 vezes se ele morreu
+    print("{} nasceu com {} vidas".format(Tom.nome, Tom.vidas))
+    # Essa primeira linha (anterior) serve para mostrar com quantas vidas Tom foi criado
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+    print(Tom.morrer())
+
+    #Segundo gato chamado Geni
+    print("Segundo teste do Gato:")
+    Geni=Gato("Geni", "marrom", 1, "garra")
+    print(Geni.__dict__)
+    print(Geni.correr())
+    print(Geni.mamar())
+    print(Geni.miar())
+    
+    #Matando a Geni 7 vezes com método de loop e verificando 2 vezes se ela morreu
+    print("{} nasceu com {} vidas".format(Geni.nome, Geni.vidas))
+    # Essa linha (anterior) serve para mostrar com quantas vidas Geni foi criada
+    for i in range(0, 9):
+        print(Geni.morrer())
+        i=i-1
 
 if __name__ == "__main__":
     main()
     
+# fim dos testes
+
 # Fim do exercício Ac2_lp2
